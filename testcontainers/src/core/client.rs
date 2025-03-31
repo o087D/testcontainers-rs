@@ -507,7 +507,7 @@ where
                     format!("Docker container has been dropped: {}", message),
                 ),
                 bollard::errors::Error::IOError { err } => err,
-                err => io::Error::new(io::ErrorKind::Other, err),
+                err => io::Error::other(err),
             })
             .boxed();
         LogStream::new(stream)
